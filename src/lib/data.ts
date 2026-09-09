@@ -4,15 +4,35 @@ let articlesCache: Article[] | null = null
 let categoriesCache: Category[] | null = null
 let metaCache: Meta | null = null
 
+const ARTICLE_SHARDS = [
+  'articles-00.json',
+  'articles-01.json',
+  'articles-02.json',
+  'articles-03.json',
+  'articles-04.json',
+  'articles-05.json',
+]
+
 async function loadJson<T>(path: string): Promise<T> {
   const res = await fetch(path)
   if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`)
   return res.json() as Promise<T>
 }
 
+async function loadArticlesFromShards(): Promise<Article[]> {
+  const parts = await Promise.all(
+    ARTICLE_SHARDS.map((name) => loadJson<Article[]>(`/data/shards/${name}`)),
+  )
+  return parts.flat()
+}
+
 export async function getArticles(): Promise<Article[]> {
   if (!articlesCache) {
-    articlesCache = await loadJson<Article[]>('/data/articles.json')
+    try {
+      articlesCache = await loadJson<Article[]>('/data/articles.json')
+    } catch {
+      articlesCache = await loadArticlesFromShards()
+    }
   }
   return articlesCache
 }
