@@ -126,17 +126,21 @@ export function ArticlePage() {
             이 페이지는 학습용 요약과 핵심 포인트만 담고 있습니다. 다이어그램·전체 본문은
             ByteByteGo 원문에서 확인하세요.
           </p>
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary mt-5 inline-flex"
-          >
-            원문 읽기
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M7 17 17 7M7 7h10v10" />
-            </svg>
-          </a>
+          {article.url ? (
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary mt-5 inline-flex"
+            >
+              원문 읽기
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 17 17 7M7 7h10v10" />
+              </svg>
+            </a>
+          ) : (
+            <p className="mt-5 text-sm text-ink-muted">원문 링크가 아직 없습니다.</p>
+          )}
         </section>
 
         <div className="mt-10 flex gap-3">
