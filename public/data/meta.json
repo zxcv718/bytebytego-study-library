@@ -1,0 +1,26 @@
+{
+  "totalArticles": 566,
+  "dateRange": {
+    "start": "2023-10-04T16:07:51Z",
+    "end": "2026-09-09T15:30:26Z"
+  },
+  "generatedAt": "2026-09-09T21:02:23Z",
+  "categoryBreakdown": {
+    "ai-llm-systems": 68,
+    "case-studies": 92,
+    "other": 34,
+    "databases-storage": 45,
+    "distributed-systems": 44,
+    "system-design-fundamentals": 149,
+    "career-interview": 18,
+    "cloud-infrastructure": 31,
+    "caching-performance": 18,
+    "scalability-reliability": 17,
+    "networking-apis": 36,
+    "security": 14
+  },
+  "sources": [
+    "bytebytego@substack.com",
+    "blog.bytebytego.com"
+  ]
+}

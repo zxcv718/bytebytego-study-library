@@ -1,0 +1,98 @@
+[
+  {
+    "id": "system-design-fundamentals",
+    "name": "System Design Fundamentals",
+    "nameKo": "시스템 디자인 기초",
+    "description": "Core system design concepts, patterns, and building blocks",
+    "color": "#4A86E8",
+    "articleCount": 149
+  },
+  {
+    "id": "distributed-systems",
+    "name": "Distributed Systems",
+    "nameKo": "분산 시스템",
+    "description": "Consensus, consistency, replication, partitioning, messaging",
+    "color": "#A479E2",
+    "articleCount": 44
+  },
+  {
+    "id": "databases-storage",
+    "name": "Databases & Storage",
+    "nameKo": "데이터베이스 & 스토리지",
+    "description": "SQL/NoSQL, indexes, transactions, storage engines",
+    "color": "#16A765",
+    "articleCount": 45
+  },
+  {
+    "id": "caching-performance",
+    "name": "Caching & Performance",
+    "nameKo": "캐싱 & 성능",
+    "description": "Caching strategies, latency, throughput optimization",
+    "color": "#FFAD47",
+    "articleCount": 18
+  },
+  {
+    "id": "networking-apis",
+    "name": "Networking & APIs",
+    "nameKo": "네트워킹 & API",
+    "description": "Protocols, HTTP, API design, gateways, RPC",
+    "color": "#2DA2BB",
+    "articleCount": 36
+  },
+  {
+    "id": "scalability-reliability",
+    "name": "Scalability & Reliability",
+    "nameKo": "확장성 & 신뢰성",
+    "description": "Scaling, HA, fault tolerance, observability, SRE",
+    "color": "#FB4C2F",
+    "articleCount": 17
+  },
+  {
+    "id": "ai-llm-systems",
+    "name": "AI / LLM Systems",
+    "nameKo": "AI / LLM 시스템",
+    "description": "LLM apps, RAG, agents, ML infra, model serving",
+    "color": "#F691B2",
+    "articleCount": 68
+  },
+  {
+    "id": "cloud-infrastructure",
+    "name": "Cloud & Infrastructure",
+    "nameKo": "클라우드 & 인프라",
+    "description": "Cloud, containers, K8s, CI/CD, DevOps tooling",
+    "color": "#43D692",
+    "articleCount": 31
+  },
+  {
+    "id": "security",
+    "name": "Security",
+    "nameKo": "보안",
+    "description": "AuthN/Z, encryption, API security, threat models",
+    "color": "#822111",
+    "articleCount": 14
+  },
+  {
+    "id": "case-studies",
+    "name": "Case Studies",
+    "nameKo": "아키텍처 사례 연구",
+    "description": "Company architecture deep-dives and postmortems",
+    "color": "#7A4706",
+    "articleCount": 92
+  },
+  {
+    "id": "career-interview",
+    "name": "Career / Interview",
+    "nameKo": "커리어 / 면접",
+    "description": "Interview prep, career growth, soft skills for engineers",
+    "color": "#666666",
+    "articleCount": 18
+  },
+  {
+    "id": "other",
+    "name": "Other",
+    "nameKo": "기타",
+    "description": "Promotions, announcements, misc newsletter content",
+    "color": "#CCCCCC",
+    "articleCount": 34
+  }
+]
