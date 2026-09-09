@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 652,
+  "count": 566,
   "shards": [
     "shards/articles-00.json",
     "shards/articles-01.json",
