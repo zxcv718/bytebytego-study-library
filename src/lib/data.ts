@@ -18,6 +18,16 @@ const ARTICLE_SHARDS = [
   'articles-10.json',
   'articles-11.json',
   'articles-12.json',
+  'articles-13.json',
+  'articles-14.json',
+  'articles-15.json',
+  'articles-16.json',
+  'articles-17.json',
+  'articles-18.json',
+  'articles-19.json',
+  'articles-20.json',
+  'articles-21.json',
+  'articles-22.json',
 ]
 
 async function loadJson<T>(path: string): Promise<T> {
