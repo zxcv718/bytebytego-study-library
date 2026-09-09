@@ -1,1 +1,14 @@
-@/workspace/bytebytego-data/github-push/articles.json
+{
+  "version": 1,
+  "count": 652,
+  "shards": [
+    "shards/articles-00.json",
+    "shards/articles-01.json",
+    "shards/articles-02.json",
+    "shards/articles-03.json",
+    "shards/articles-04.json",
+    "shards/articles-05.json",
+    "shards/articles-06.json",
+    "shards/articles-07.json"
+  ]
+}

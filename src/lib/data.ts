@@ -4,14 +4,11 @@ let articlesCache: Article[] | null = null
 let categoriesCache: Category[] | null = null
 let metaCache: Meta | null = null
 
-const ARTICLE_SHARDS = [
-  'articles-00.json',
-  'articles-01.json',
-  'articles-02.json',
-  'articles-03.json',
-  'articles-04.json',
-  'articles-05.json',
-]
+type ArticlesManifest = {
+  version?: number
+  count?: number
+  shards: string[]
+}
 
 async function loadJson<T>(path: string): Promise<T> {
   const res = await fetch(path)
@@ -19,19 +16,30 @@ async function loadJson<T>(path: string): Promise<T> {
   return res.json() as Promise<T>
 }
 
-async function loadArticlesFromShards(): Promise<Article[]> {
+async function loadArticlesFromShards(shardPaths: string[]): Promise<Article[]> {
   const parts = await Promise.all(
-    ARTICLE_SHARDS.map((name) => loadJson<Article[]>(`/data/shards/${name}`)),
+    shardPaths.map((rel) => loadJson<Article[]>(`/data/${rel.replace(/^\//, '')}`)),
   )
   return parts.flat()
 }
 
+function isManifest(value: unknown): value is ArticlesManifest {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    Array.isArray((value as ArticlesManifest).shards)
+  )
+}
+
 export async function getArticles(): Promise<Article[]> {
   if (!articlesCache) {
-    try {
-      articlesCache = await loadJson<Article[]>('/data/articles.json')
-    } catch {
-      articlesCache = await loadArticlesFromShards()
+    const payload = await loadJson<Article[] | ArticlesManifest>('/data/articles.json')
+    if (isManifest(payload)) {
+      articlesCache = await loadArticlesFromShards(payload.shards)
+    } else if (Array.isArray(payload)) {
+      articlesCache = payload
+    } else {
+      throw new Error('Invalid articles.json format')
     }
   }
   return articlesCache
