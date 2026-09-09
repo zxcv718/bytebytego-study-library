@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f8f9fb;
+  --color-surface-muted: #f1f3f7;
+  --color-border: #e6e8ee;
+  --color-border-strong: #d0d4de;
+  --color-ink: #0f1220;
+  --color-ink-secondary: #4b5168;
+  --color-ink-muted: #7a8199;
+  --color-accent: #6366f1;
+  --color-accent-soft: #eef0ff;
+  --color-accent-fg: #4338ca;
+  --shadow-card: 0 1px 2px rgb(15 18 32 / 0.04), 0 8px 24px rgb(15 18 32 / 0.04);
+  --shadow-float: 0 12px 40px rgb(15 18 32 / 0.12);
+}
+
+.dark {
+  --color-surface: #0b0d14;
+  --color-surface-elevated: #12151f;
+  --color-surface-muted: #181c29;
+  --color-border: #232838;
+  --color-border-strong: #32384d;
+  --color-ink: #f4f5f9;
+  --color-ink-secondary: #b6bcd0;
+  --color-ink-muted: #8a91a8;
+  --color-accent: #818cf8;
+  --color-accent-soft: #1c2038;
+  --color-accent-fg: #c7cbff;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.25);
+  --shadow-float: 0 16px 48px rgb(0 0 0 / 0.45);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans;
+    font-feature-settings: "ss01" on, "cv01" on;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, color-mix(in oklab, var(--color-accent) 18%, transparent), transparent),
+      radial-gradient(ellipse 40% 30% at 100% 0%, color-mix(in oklab, #22d3ee 8%, transparent), transparent);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border bg-surface-elevated/80 backdrop-blur-sm;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover {
+    @apply rounded-2xl border border-border bg-surface-elevated/80 backdrop-blur-sm transition-all duration-200;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    @apply border-border-strong -translate-y-0.5;
+    box-shadow: var(--shadow-float);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all bg-accent text-white hover:brightness-110;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all border border-border bg-surface-elevated text-ink-secondary hover:border-border-strong hover:text-ink;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium tracking-tight;
+  }
+
+  .badge-beginner {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium tracking-tight bg-emerald-500/15 text-emerald-600 dark:text-emerald-300;
+  }
+
+  .badge-intermediate {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium tracking-tight bg-amber-500/15 text-amber-700 dark:text-amber-300;
+  }
+
+  .badge-advanced {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium tracking-tight bg-rose-500/15 text-rose-600 dark:text-rose-300;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-border bg-surface-elevated px-3.5 py-2.5 text-sm text-ink outline-none placeholder:text-ink-muted focus:border-accent focus:ring-2 focus:ring-accent/20;
+  }
+
+  .select {
+    @apply w-full rounded-xl border border-border bg-surface-elevated px-3.5 py-2.5 text-sm text-ink outline-none appearance-none pr-9 focus:border-accent focus:ring-2 focus:ring-accent/20;
+  }
+
+  .prose-reading {
+    @apply text-[17px] leading-8 text-ink-secondary;
+  }
+
+  .kbd {
+    @apply inline-flex items-center rounded-md border border-border bg-surface-muted px-1.5 py-0.5 font-mono text-[11px] text-ink-muted;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-lg border border-border bg-surface-muted/60 px-2.5 py-1 text-xs text-ink-secondary;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted;
+  }
+}
